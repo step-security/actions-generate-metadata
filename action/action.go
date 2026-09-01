@@ -43,7 +43,7 @@ type Metadata struct {
 	Product         string `json:"product"`
 	ReleaseMetadata string `json:"releaseMetadata"`
 	ReleaseSubDir   string `json:"release_sub_dir,omitempty"`
-	Repo            string `json:"repo""`
+	Repo            string `json:"repo"`
 	Revision        string `json:"sha"`
 	SecurityScan    string `json:"securityScan"`
 	Version         string `json:"version"`
