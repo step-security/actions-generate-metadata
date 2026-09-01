@@ -1,4 +1,5 @@
 # Copyright IBM Corp. 2021, 2025
+# Copyright 2026 StepSecurity
 # SPDX-License-Identifier: MPL-2.0
 
 name: generate-metadata action
@@ -21,9 +22,9 @@ inputs:
     description: 'The repository name for collecting the metadata'
     required: true
   repositoryOwner:
-    description: 'The repository owner (organization or user). Default is set to "hashicorp" organization'
+    description: 'The repository owner (organization or user). Default is set to "step-security" organization'
     required: false
-    default: 'hashicorp'
+    default: 'step-security'
   version:
     description: 'Version or version command (e.g: make version)'
     required: true

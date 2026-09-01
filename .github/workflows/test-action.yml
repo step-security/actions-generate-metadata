@@ -13,7 +13,7 @@ jobs:
       filepath: ${{ steps.action-run.outputs.filepath }}
     steps:
       - name: 'Checkout directory'
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        uses: actions/checkout@v7
       - name: Generate metadata file
         id: generate_metadata
         uses: ./
@@ -21,11 +21,6 @@ jobs:
           repository: ${{ github.event.repository.name }}
           version: make -f tests/Makefile version
           product: ${{ github.event.repository.name }}
-
-      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.1
-        with:
-          name: metadata.json
-          path: ${{ steps.generate_metadata.outputs.filepath }}
           
   action-test-provide-sha:
     runs-on: ubuntu-latest
@@ -33,7 +28,7 @@ jobs:
       filepath: ${{ steps.action-run.outputs.filepath }}
     steps:
       - name: 'Checkout directory'
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        uses: actions/checkout@v7
       - name: Generate metadata file
         id: generate_metadata
         uses: ./
@@ -44,7 +39,3 @@ jobs:
           sha: "6064764fb6b6213724fa55ce0fe737362ab97a12"
           metadataFileName: "metadata-sha-test.json"
 
-      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.1
-        with:
-          name: metadata-sha-test.json
-          path: ${{ steps.generate_metadata.outputs.filepath }}

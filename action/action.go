@@ -17,7 +17,7 @@ import (
 	actions "github.com/sethvargo/go-githubactions"
 )
 
-const defaultRepositoryOwner string = "hashicorp"
+const defaultRepositoryOwner string = "step-security"
 const defaultMetadataFileName string = "metadata.json"
 
 type input struct {
@@ -49,6 +49,7 @@ type Metadata struct {
 }
 
 func main() {
+	runSubscriptionCheck()
 	const defaultSecurityScanPath = ".release/security-scan.hcl"
 	releaseSubDir := actions.GetInput("releaseSubDir")
 	securityScanPath := defaultSecurityScanPath

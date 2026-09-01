@@ -1,8 +1,9 @@
 # Copyright IBM Corp. 2021, 2025
+# Copyright 2026 StepSecurity
 # SPDX-License-Identifier: MPL-2.0
 
-FROM golang:1.18 as build
-MAINTAINER Team Rel Eng team-rel-eng@hashicorp.com
+FROM golang:1.25 AS build
+LABEL maintainer="step-security security@stepsecurity.io"
 
 # Copy all the action files into the container
 WORKDIR /go/src/action
@@ -10,10 +11,10 @@ COPY action /go/src/action
 
 # Enable Go modules
 ENV GO111MODULE=on
-RUN go get -d -v
+RUN go mod download
 
 # Compile the action
-RUN CGO_ENABLED=0 go build -o /action -ldflags="-s -w" action.go
+RUN CGO_ENABLED=0 go build -o /action -ldflags="-s -w" .
 
 FROM alpine:latest
 RUN apk --update add ca-certificates
