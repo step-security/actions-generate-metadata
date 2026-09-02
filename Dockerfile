@@ -2,7 +2,7 @@
 # Copyright 2026 StepSecurity
 # SPDX-License-Identifier: MPL-2.0
 
-FROM golang:1.25 AS build
+FROM golang:1.25@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80 AS build
 LABEL maintainer="step-security security@stepsecurity.io"
 
 # Copy all the action files into the container
@@ -16,7 +16,7 @@ RUN go mod download
 # Compile the action
 RUN CGO_ENABLED=0 go build -o /action -ldflags="-s -w" .
 
-FROM alpine:latest
+FROM alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
 RUN apk --update add ca-certificates
 RUN apk add --no-cache git make bash
 

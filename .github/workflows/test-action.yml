@@ -12,8 +12,13 @@ jobs:
     outputs:
       filepath: ${{ steps.action-run.outputs.filepath }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: 'Checkout directory'
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Generate metadata file
         id: generate_metadata
         uses: ./
@@ -27,8 +32,13 @@ jobs:
     outputs:
       filepath: ${{ steps.action-run.outputs.filepath }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: 'Checkout directory'
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Generate metadata file
         id: generate_metadata
         uses: ./
