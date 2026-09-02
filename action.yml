@@ -41,8 +41,8 @@ inputs:
     default: ''
 
 runs:
-  using: docker
-  image: Dockerfile
+  using: 'docker'
+  image: 'docker://ghcr.io/step-security/actions-generate-metadata:v1.1.4@sha256:477583c171b142e84723b9c086076c815edc56d5a7e6facd9b1ca6ddbb57e45b' # v1.1.4
   args:
     - ${{ inputs.branch }}
     - ${{ inputs.filePath }}
