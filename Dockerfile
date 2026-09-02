@@ -17,8 +17,7 @@ RUN go mod download
 RUN CGO_ENABLED=0 go build -o /action -ldflags="-s -w" .
 
 FROM alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
-RUN apk --update add ca-certificates
-RUN apk add --no-cache git make bash
+RUN apk --update upgrade && apk add --no-cache ca-certificates git make bash
 
 COPY --from=build /action /
 # Specify the container's entrypoint as the action
