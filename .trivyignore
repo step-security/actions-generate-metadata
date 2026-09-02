@@ -1,0 +1,2 @@
+# golang.org/x/crypto/openpgp is unmaintained by design; this action does not use it
+GO-2026-5932
