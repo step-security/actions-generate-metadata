@@ -7,7 +7,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path"
@@ -175,7 +174,7 @@ func createMetadataJson(in input) string {
 	if err != nil {
 		actions.Fatalf("JSON marshal failure. Error:%v\n", err)
 	} else {
-		err = ioutil.WriteFile(filePath, output, 0644)
+		err = os.WriteFile(filePath, output, 0644)
 		if err != nil {
 			actions.Fatalf("Failed writing data into %v file. Error: %v\n", in.metadataFileName, err)
 		}
@@ -212,7 +211,7 @@ func execCommand(args ...string) string {
 // importFromFile reads the inputted file from filePath and returns
 // it b64encoded.
 func importFromFile(filePath string) string {
-	scanfile, err := ioutil.ReadFile(filePath)
+	scanfile, err := os.ReadFile(filePath)
 	if err != nil {
 		actions.Infof("No file found at %v; this is unusual in builds but normal in testing pipelines.", filePath)
 	}
