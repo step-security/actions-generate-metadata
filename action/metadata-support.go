@@ -11,9 +11,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/google/go-github/v45/github"
+	"github.com/google/go-github/v90/github"
 	"github.com/sethvargo/go-githubactions"
-	"golang.org/x/oauth2"
 )
 
 // getArtifacts queries github for artifact list, returning a map of strings of
@@ -29,11 +28,12 @@ func getArtifacts(org string, repo string, workflowRunID int64) map[string][]str
 	}
 
 	ctx := context.Background()
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: token},
-	)
-	tc := oauth2.NewClient(ctx, ts)
-	ghClient := github.NewClient(tc)
+	ghClient, err := github.NewClient(github.WithAuthToken(token))
+	if err != nil {
+		githubactions.Errorf("failed to initialize github client: %v", err)
+		return nil
+	}
+
 
 	// Query API for list of artifacts associated with specified build workflow of product.
 	opt := &github.ListOptions{PerPage: 100} // 100 is max resposes per page.
