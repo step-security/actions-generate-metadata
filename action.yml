@@ -43,7 +43,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/step-security/actions-generate-metadata:v1.3.0@sha256:94ea12a4785676fb0d900428953d9e448881c0a945f469162a878004040ddda7' # v1.3.0
+  image: 'docker://ghcr.io/step-security/actions-generate-metadata:v1.3.0@sha256:3968db6379f4c96e4fc97c455d7634bedf271c13263c1c6098ee9d5e97e65dff' # v1.3.0
   args:
     - ${{ inputs.branch }}
     - ${{ inputs.filePath }}
