@@ -42,21 +42,14 @@ type Metadata struct {
 	Product         string `json:"product"`
 	ReleaseMetadata string `json:"releaseMetadata"`
 	ReleaseSubDir   string `json:"release_sub_dir,omitempty"`
-<<<<<<< a3c09b96deca1ad8db9076cfa757e4bd0a121988
 	Repo            string `json:"repo"`
-=======
-	Repo            string `json:"repo""`
->>>>>>> f4d120f2bc45860eb344069fdb33f917d238733c
 	Revision        string `json:"sha"`
 	SecurityScan    string `json:"securityScan"`
 	Version         string `json:"version"`
 }
 
 func main() {
-<<<<<<< a3c09b96deca1ad8db9076cfa757e4bd0a121988
 	runSubscriptionCheck()
-=======
->>>>>>> f4d120f2bc45860eb344069fdb33f917d238733c
 	const defaultSecurityScanPath = ".release/security-scan.hcl"
 	releaseSubDir := actions.GetInput("releaseSubDir")
 	securityScanPath := defaultSecurityScanPath
