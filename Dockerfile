@@ -2,7 +2,7 @@
 # Copyright 2026 StepSecurity
 # SPDX-License-Identifier: MPL-2.0
 
-FROM golang:1.25@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80 AS build
+FROM golang:1.26@sha256:670bb5aa5349ae03b8516764718486f4f16399134bdc9acd0c46a23f043ab05c AS build
 LABEL maintainer="step-security security@stepsecurity.io"
 
 # Copy all the action files into the container
