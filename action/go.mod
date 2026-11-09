@@ -1,12 +1,11 @@
 module github.com/step-security/actions-generate-metadata/action
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/google/go-github/v90 v90.0.0
 	github.com/sethvargo/go-githubactions v1.1.0
 	github.com/stretchr/testify v1.8.1
-	golang.org/x/oauth2 v0.36.0
 )
 
 require (
